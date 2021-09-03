@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class PrimeUtil {
 
+    // returns whether a given number is prime or not
     public boolean isPrime(int n) {
         if(n <= 1) return false;
         if(n == 2) return true;
@@ -14,8 +15,12 @@ public class PrimeUtil {
 
     public ArrayList<Integer> getPrimes(int b, int e) {
         ArrayList<Integer> result = new ArrayList<>();
-        for (int i = b; i < e; i++) {
-            if(isPrime(i)) result.add(i);
+        if(b == 2)
+            result.add(2);
+        if(b % 2 == 0) b++;
+        for (int i = b; i < e; i+=2) {
+            if(this.isPrime(i)) result.add(i);
+            System.out.println(i);
         }
         return result;
     }
