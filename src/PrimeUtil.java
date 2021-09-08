@@ -16,7 +16,7 @@ public class PrimeUtil {
     public ArrayList<Integer> getPrimes(int max) {
         ArrayList<Integer> result = new ArrayList<>();
         result.add(2);
-        result.add(3);
+//        result.add(3);
         int b = 3;
         for (int i = b; i < max; i+=2) {
             boolean prime = true;
@@ -25,6 +25,7 @@ public class PrimeUtil {
                     prime = false;
                     break;
                 }
+                if(n*n > i) break;
             }
             if(prime) result.add(i);
         }
