@@ -13,15 +13,23 @@ public class PrimeUtil {
         return true;
     }
 
-    public ArrayList<Integer> getPrimes(int b, int e) {
+    public ArrayList<Integer> getPrimes(int max) {
         ArrayList<Integer> result = new ArrayList<>();
-        if(b == 2)
-            result.add(2);
-        if(b % 2 == 0) b++;
-        for (int i = b; i < e; i+=2) {
-            if(this.isPrime(i)) result.add(i);
-            System.out.println(i);
+        result.add(2);
+        result.add(3);
+        int b = 3;
+        for (int i = b; i < max; i+=2) {
+            boolean prime = true;
+            for(int n: result) {
+                if(i % n == 0){
+                    prime = false;
+                    break;
+                }
+            }
+            if(prime) result.add(i);
         }
         return result;
     }
+    //break; -> quit teh current loop
+    //continue; -> quits the current iterraton, continues the loop
 }
